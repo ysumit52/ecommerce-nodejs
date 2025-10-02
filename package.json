@@ -38,7 +38,7 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
-   "lint-staged": {
+  "lint-staged": {
     "src/**/*.ts": [
       "eslint --fix",
       "prettier --write"
