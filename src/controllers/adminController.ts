@@ -12,7 +12,7 @@ export const createUser = async (req: Request, res: Response) => {
     await user.save();
     res.status(201).json(user);
   } catch (error) {
-    res.status(500).json({ error: 'Error creating user' });
+    res.status(500).json({ error: 'Error creating user' + error });
   }
 };
 
@@ -23,7 +23,7 @@ export const updateUser = async (req: Request, res: Response) => {
     const user = await User.findByIdAndUpdate(id, { name, email, role }, { new: true });
     res.json(user);
   } catch (error) {
-    res.status(500).json({ error: 'Error updating user' });
+    res.status(500).json({ error: 'Error updating user' + error });
   }
 };
 
@@ -33,7 +33,7 @@ export const deleteUser = async (req: Request, res: Response) => {
     await User.findByIdAndDelete(id);
     res.json({ message: 'User deleted successfully' });
   } catch (error) {
-    res.status(500).json({ error: 'Error deleting user' });
+    res.status(500).json({ error: 'Error deleting user' + error });
   }
 };
 
@@ -45,7 +45,7 @@ export const updateComment = async (req: Request, res: Response) => {
     const comment = await Comment.findByIdAndUpdate(id, { text }, { new: true });
     res.json(comment);
   } catch (error) {
-    res.status(500).json({ error: 'Error updating comment' });
+    res.status(500).json({ error: 'Error updating comment' + error });
   }
 };
 
@@ -55,7 +55,7 @@ export const deleteComment = async (req: Request, res: Response) => {
     await Comment.findByIdAndDelete(id);
     res.json({ message: 'Comment deleted successfully' });
   } catch (error) {
-    res.status(500).json({ error: 'Error deleting comment' });
+    res.status(500).json({ error: 'Error deleting comment' + error });
   }
 };
 
@@ -67,7 +67,7 @@ export const addRetailer = async (req: Request, res: Response) => {
     await retailer.save();
     res.status(201).json(retailer);
   } catch (error) {
-    res.status(500).json({ error: 'Error adding retailer' });
+    res.status(500).json({ error: 'Error adding retailer' + error });
   }
 };
 
@@ -78,7 +78,7 @@ export const updateRetailer = async (req: Request, res: Response) => {
     const retailer = await Retailer.findByIdAndUpdate(id, { name, email }, { new: true });
     res.json(retailer);
   } catch (error) {
-    res.status(500).json({ error: 'Error updating retailer' });
+    res.status(500).json({ error: 'Error updating retailer' + error });
   }
 };
 
@@ -88,7 +88,7 @@ export const deleteRetailer = async (req: Request, res: Response) => {
     await Retailer.findByIdAndDelete(id);
     res.json({ message: 'Retailer deleted successfully' });
   } catch (error) {
-    res.status(500).json({ error: 'Error deleting retailer' });
+    res.status(500).json({ error: 'Error deleting retailer' + error });
   }
 };
 
@@ -100,6 +100,6 @@ export const createOrder = async (req: Request, res: Response) => {
     await order.save();
     res.status(201).json(order);
   } catch (error) {
-    res.status(500).json({ error: 'Error creating order' });
+    res.status(500).json({ error: 'Error creating order' + error });
   }
 };
